@@ -1,0 +1,32 @@
+.translate-x
+  transform-origin: top center
+
+@keyframes translateXIn
+  0%
+    display: block
+    opacity: 0
+    transform: translateX(100%)
+
+  80%
+    transform: translateX(-5%)
+
+  100%
+    opacity: 1
+    transform: translate(0%)
+
+@keyframes translateXOut
+  0%
+    display: block
+    opacity: 1
+    transform: translate(0%)
+
+  40%
+    transform: translateX(-25%)
+
+  50%
+    opacity: 1
+
+  100%
+    opacity: 0
+    transform: translateX(100%)
+    display: none

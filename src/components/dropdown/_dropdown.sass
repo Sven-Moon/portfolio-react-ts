@@ -1,0 +1,49 @@
+@import './animations/animations'
+*,
+*:after,
+*:before
+  box-sizing: border-box
+
+.dropdown
+  position: relative
+  display: flex
+  align-items: center
+  border-bottom: rgb(136, 68, 0)
+
+  width: 100%
+  padding: .6rem .75rem
+  justify-content: right
+  color: white
+
+  &:after
+    content: '▼'
+    font-size: 10px
+    margin-left: .5rem
+
+  &__menu
+    display: none
+    position: absolute
+    top: 100%
+    right: 0
+    padding: 0
+    min-width: max-content
+
+  &__menu a:last-child
+    border-bottom: none
+
+  &__menu a
+    display: block
+    background: $col-nav
+    opacity: 0
+    text-decoration: none
+    border-top: 1px solid $col-mustard-main
+    border-bottom: 1px solid $col-mustard-dark
+    color: #eee
+    padding: 0.5em 1rem
+
+  &__menu a:hover
+    background-color: rgba(255,255,255,.7)
+    color: #222
+
+.show
+  display: block

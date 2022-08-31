@@ -1,0 +1,66 @@
+@import '../../styles/_variables'
+
+nav
+  //location
+  position: fixed
+  right: 0
+  top: 2rem
+  z-index: $z-menu
+  //size
+  width: 100px
+  min-width: fit-content
+  padding-left: 1rem
+  transition: width .3s linear
+  //color
+  background-color: #a86d00
+
+nav:hover
+  width: 115px
+  transition: width .3s linear
+
+.nav__edge-angle
+  position: absolute
+  left: -25px
+  top: 0
+
+  height: 0
+  width: 0
+  border-right: .1rem solid transparent
+  border-left: 25px solid transparent
+  border-top: 37px solid $col-mustard-main
+
+ul
+  position: relative
+  flex-direction: row
+  flex-wrap: wrap
+  list-style: none
+  padding: 0
+  margin: 0
+
+li
+  position: relative
+  padding: .5rem .75rem
+  margin: 0
+
+a
+  text-decoration: none
+  color: white
+  z-index: 1
+
+li:before
+  content: ""
+  position: absolute
+  width: 100%
+  height: 3px
+  bottom: 0
+  left: 0
+  background: #743705
+  visibility: hidden
+  border-radius: 5px
+  transform: scaleX(0)
+  transition: .25s linear
+
+li:hover:before,
+li:focus:before
+  visibility: visible
+  transform: scaleX(1)
