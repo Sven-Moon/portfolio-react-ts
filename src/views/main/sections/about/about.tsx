@@ -1,5 +1,6 @@
-import React from 'react'
-import Interest, {IInterests} from '../../../../components/interest/interest'
+import React, { useContext } from 'react'
+import { DataContext } from '../../../../app/Providers/DataProvider'
+import Interest, {IInterest, IInterests} from '../../../../components/interest/interest'
 
 type Props = {
   interests: IInterests,
@@ -7,6 +8,17 @@ type Props = {
 }
 
 export const About = (props: Props) => {
+  
+  const { showModal, setShowModal, setModalContent } = useContext(DataContext)
+
+  const openModal = (interest: IInterest) => {
+    if (!showModal) {
+      const node = <Interest interest={interest}/>
+      setModalContent(node)
+      setShowModal(true)
+    }
+  }
+
   return (
     <section id="about">
       <div className="title">About</div>
@@ -15,14 +27,27 @@ export const About = (props: Props) => {
       </div>
       <div className="subtitle">-Aristotle</div>
 
-      <div className="interest__holder wrap">
+      <div className="holder wrap">
         <div className="col-6-lg">
-          <Interest interest={props.interests['development']}/>
-          <Interest interest={props.interests['skills']}/>
+
+
+            <Interest
+              interest={props.interests['development']}
+            openModal={openModal}
+            />
+          
+
+          <Interest interest={props.interests['skills']}
+            openModal={openModal} />
         </div>
         <div className="col-6-lg">
-          <Interest interest={props.interests['tinkering']} />
-          <Interest interest={props.interests['travel']} />
+          <Interest
+            interest={props.interests['tinkering']}
+            openModal={openModal}
+          /><Interest
+            interest={props.interests['travel']}
+            openModal={openModal}
+          />
         </div>
       </div>
     </section>

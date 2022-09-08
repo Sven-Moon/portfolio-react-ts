@@ -1,0 +1,88 @@
+.project
+  position: relative
+  width: 100%
+  cursor: pointer
+  color: white
+
+  img
+    width: 100%
+  /* background-color: rgba(0, 0, 0, 0.2); */
+
+  // .description:hover
+  //   opacity: 100%
+  //   padding-inline: .5rem
+  //   font-size: clamp(.8rem, 3vw, 1.25rem)
+
+  .overlay
+    flex-direction: column
+    position: absolute
+    width: 100%
+    height: 100%
+    opacity: 0
+
+    padding: .5rem
+    transition: opacity .2s linear
+
+    *
+      color: white
+      margin-bottom: .5rem
+      text-shadow: 1px 1px $col-nav-dark
+      z-index: 21
+
+    .go-to__btn
+      position: absolute
+      right: .5rem
+      top: .5rem
+      padding: .5rem
+      opacity: 1
+
+      & a
+        margin: 0
+        text-shadow: none
+
+    .techs
+      font-size: clamp(.7rem, 3vw, 1.25rem)
+
+    .c_backdrop
+      position: absolute
+      width: 100%
+      height: 100%
+      background-color: $col-nav
+      opacity: .85
+      z-index: 20
+
+  .title
+    font-weight: 700
+
+    font-size: clamp(1rem, 1.5rem, 3rem)
+
+    justify-content: center
+    align-items: center
+    text-align: center
+
+.project:hover
+  .overlay
+    opacity: 1
+    transition: opacity .2s linear
+
+@media only screen and (min-width:600px)
+  .project
+    width: 50%
+
+  .description
+    font-size: clamp(.75rem, 1.8vw, 1rem)
+
+  .techs
+    font-size: clamp(.7rem, 1.6vw, .9rem)
+
+@media only screen and (min-width:768px)
+
+  .description
+    font-size: clamp(.75rem, 1.8vw, 1rem)
+    padding-inline: 10%
+
+@media only screen and (min-width:1200px)
+
+  .description
+    font-size: 1.25rem
+    padding-inline: 20%

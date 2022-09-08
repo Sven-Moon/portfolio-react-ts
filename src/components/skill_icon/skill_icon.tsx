@@ -7,7 +7,6 @@ type Props = {
 
 const SkillIcon = (props: Props) => {
   const { skill } = props
-  console.log('I\'m a skill, my name is', skill.name);
   return (
     <div className="skill">
       <div className="skill__image" style={{backgroundImage: `url(${skill.imageUrl})`}}/>

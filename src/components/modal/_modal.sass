@@ -8,23 +8,23 @@
   justify-content: center
   align-items: center
 
-  background-color: rgba(0, 0, 0, .8)
-  z-index: var(--z-modal-backdrop)
-  transition: opacity 1s linear
+  .close__btn
+    position: absolute
+    top: 5%
+    right: 5%
+    background-color: #ffffff67
+    color: black
 
+  .modal.backdrop
+    background-color: rgba(0, 0, 0, .8)
+    z-index: $z-modal-backdrop
+    transition: opacity 1s linear
 
-  &__container
+  .img
+    width: 100%
+
+  > .container
     max-width: 600px
-    width: 80%
-    height: fit-content
-    max-height: 80%
-    overflow-y: auto
-    background-color: white
-
-
-  & .modal__show
-    display: flex
-
-
-  & .modal__hide
-    display: none
+    width: 90%
+    height: auto
+    max-height: 90%

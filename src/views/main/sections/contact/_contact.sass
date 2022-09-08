@@ -1,0 +1,76 @@
+#contact
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  background-color: $col-neutral-light
+
+  padding: 2rem
+
+  & form
+    flex-direction: column
+    /* width: 50%; */
+    max-width: 400px
+    padding: .75rem
+    align-self: flex-start
+
+  & input
+    margin-bottom: .5rem
+
+  .header
+    color: #000
+
+  .label
+    font-weight: 500
+    margin-bottom: .5rem
+
+  &section
+    background-image: none
+
+.textInput
+  padding: .5rem
+
+.message
+  width: 100%
+  padding: 1rem
+  margin-bottom: .75rem
+
+.form-container
+  flex-direction: column
+  width: 100%
+  justify-content: center
+  align-items: center
+
+.blurb
+  flex-direction: column
+  max-width: 400px
+  padding: .75rem
+  /* background-color: rgba(255, 255, 255, .8); */
+
+  & img
+    flex-shrink: 0
+    object-fit: contain
+    object-position: center
+
+.action-area
+  /* justify-content: space-between;   */
+  align-items: flex-start
+  width: 100%
+
+#errors
+  color: tomato
+  font-weight: 500
+  min-width: 100px
+  hyphens: auto
+
+.submit
+  margin-left: auto
+
+@media only screen and (min-width: 600px)
+  .blurb
+    order: 2
+
+  #contact form
+    order: 1
+
+  .form-container
+    flex-flow: row nowrap

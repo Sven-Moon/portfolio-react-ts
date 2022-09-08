@@ -1,13 +1,13 @@
-import React from 'react'
-import capitalize from '../../helpers/capitalize'
 import SkillIcon from '../skill_icon/skill_icon'
+
 
 type Props = {
   interest: IInterest
+  openModal: (...args:any) => void
 }
 
 
-type IInterest = {
+export type IInterest = {
   data: string | ISkill[],
   name: string,
   imgUrl: string
@@ -19,11 +19,7 @@ export type ISkill = {
 
 
 export const Interest = (props: Props) => {
-  const { interest } = props
-
-  console.log(interest.name);
-  console.log('type:', typeof(interest.data));
-  console.log('type:', typeof(interest.data));console.log('typeof(interest.data) === "string":', typeof(interest.data) === "string");
+  const { interest, openModal } = props
 
   let interestData: string = ''
   let skillData: ISkill[] = []
@@ -34,45 +30,56 @@ export const Interest = (props: Props) => {
   } else {
     skillData = interest.data
   }
-  return (
 
-    <article id={interest.name} className="interest col-6-sm">
-      <div
-        className="header"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url(${interest.imgUrl})`
-        }}
-      >
-        {interest.name}
-      </div>
-      { 
-        isInterest
-          ? 
-          <div className="content">
-            <div className="text modal__hide">
-                {interestData}
-            </div>
-            
-            <div className="text-modal modal__show">
-                {interestData}
-            </div>
+
+  return (
+    <>
+      <article id={interest.name} 
+        className="interest col-6-sm"
+        onClick={() => openModal(interest)}
+        >
+
+        <div className="container">
+          <div
+            className="header"
+            style={{
+              backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3),rgba(0, 0, 0, 0.3)),url(${interest.imgUrl})`
+            }}
+          >
+            {interest.name}
           </div>
-          :
-          <div className="content">
-          {
-            skillData.map(skill => <SkillIcon skill={skill} />)
+          { 
+            isInterest
+              ? 
+              <div className="content">
+                <div className="text">
+                    {interestData}
+                </div>
+              </div>
+              :
+              <div className="content skills">
+              {
+                skillData.map(skill => <SkillIcon key={skill.name} skill={skill} />)
+              }
+              </div>
           }
-          </div>
-      }
-    </article>
+        </div>
+      </article>    
+    </>
+
+    
     
   )
 }
 
 Interest.defaultProps = {
-  name: '',
-  skill: false,
-  data: {data: '', name: '', imgUrl: ''}
+  interest: {
+    name: '',
+    skill: false,
+    data: {data: '', name: '', imgUrl: ''}
+    
+  },
+  openModal: () => {}  
 }
 
 export default Interest
